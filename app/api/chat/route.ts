@@ -4,13 +4,18 @@ import { NextRequest } from 'next/server';
 
 export const runtime = 'edge';
 
+interface Message {
+  role: 'user' | 'assistant' | 'system';
+  content: string;
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const { messages } = await req.json();
+    const { messages }: { messages: Message[] } = await req.json();
 
     const result = await streamText({
       model: openai('gpt-3.5-turbo'),
-      messages: messages.map((m: any) => ({
+      messages: messages.map((m: Message) => ({
         role: m.role,
         content: m.content
       })),

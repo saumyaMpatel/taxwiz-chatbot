@@ -100,9 +100,9 @@ const generateFileAnalysisResponse = (filename: string): string => {
   const currentYear = new Date().getFullYear()
 
   const commonInsights = [
-    `I've reviewed your file "${filename}".`,
-    `Based on my analysis of "${filename}", here are some key observations:`,
-    `After examining "${filename}", I can provide the following insights:`,
+    `I&apos;ve reviewed your file &quot;${filename}&quot;.`,
+    `Based on my analysis of &quot;${filename}&quot;, here are some key observations:`,
+    `After examining &quot;${filename}&quot;, I can provide the following insights:`,
   ]
 
   const randomInsight = commonInsights[Math.floor(Math.random() * commonInsights.length)]
@@ -111,84 +111,84 @@ const generateFileAnalysisResponse = (filename: string): string => {
     case "W-2":
       return `${randomInsight}
 
-1. From "${filename}", I can see your reported wages appear to be in the middle tax bracket range
-2. The withholding information in "${filename}" suggests you may have sufficient tax payments
+1. From &quot;${filename}&quot;, I can see your reported wages appear to be in the middle tax bracket range
+2. The withholding information in &quot;${filename}&quot; suggests you may have sufficient tax payments
 3. There may be opportunities for additional retirement contributions to reduce your taxable income
 
-Would you like me to explain any specific aspects of "${filename}" in more detail?`
+Would you like me to explain any specific aspects of &quot;${filename}&quot; in more detail?`
 
     case "1099":
       return `${randomInsight}
 
-1. Based on "${filename}", you'll need to pay self-employment tax (15.3%) on this income
-2. The information in "${filename}" suggests you should consider quarterly estimated tax payments
+1. Based on &quot;${filename}&quot;, you&apos;ll need to pay self-employment tax (15.3%) on this income
+2. The information in &quot;${filename}&quot; suggests you should consider quarterly estimated tax payments
 3. You may be eligible for business expense deductions that could reduce your taxable income
 
-Would you like information about specific deductions related to the income shown in "${filename}"?`
+Would you like information about specific deductions related to the income shown in &quot;${filename}&quot;?`
 
     case "Form 1040":
       return `${randomInsight}
 
-1. Your filing status in "${filename}" affects your tax brackets and standard deduction amount
-2. Based on the income level shown in "${filename}", you may qualify for certain tax credits
-3. I notice potential opportunities in "${filename}" to reduce your tax liability
+1. Your filing status in &quot;${filename}&quot; affects your tax brackets and standard deduction amount
+2. Based on the income level shown in &quot;${filename}&quot;, you may qualify for certain tax credits
+3. I notice potential opportunities in &quot;${filename}&quot; to reduce your tax liability
 
-Is there a specific section of "${filename}" you'd like me to focus on?`
+Is there a specific section of &quot;${filename}&quot; you&apos;d like me to focus on?`
 
     case "Schedule":
       return `${randomInsight}
 
-1. "${filename}" contains important details about specific income or deductions
-2. The information in "${filename}" will affect your overall tax calculation
-3. There may be additional documentation requirements related to items in "${filename}"
+1. &quot;${filename}&quot; contains important details about specific income or deductions
+2. The information in &quot;${filename}&quot; will affect your overall tax calculation
+3. There may be additional documentation requirements related to items in &quot;${filename}&quot;
 
-Would you like me to explain how "${filename}" impacts your overall tax situation?`
+Would you like me to explain how &quot;${filename}&quot; impacts your overall tax situation?`
 
     case "expense":
       return `${randomInsight}
 
-1. "${filename}" could be useful for tax deduction purposes
-2. Make sure to categorize the expense shown in "${filename}" correctly on your tax return
-3. Keep "${filename}" as supporting documentation in case of an audit
+1. &quot;${filename}&quot; could be useful for tax deduction purposes
+2. Make sure to categorize the expense shown in &quot;${filename}&quot; correctly on your tax return
+3. Keep &quot;${filename}&quot; as supporting documentation in case of an audit
 
-Would you like more information about how to properly claim the expense shown in "${filename}"?`
+Would you like more information about how to properly claim the expense shown in &quot;${filename}&quot;?`
 
     case "PDF document":
       return `${randomInsight}
 
-1. "${filename}" contains tax-relevant information that may impact your filing
-2. I've identified potential tax implications based on the content of "${filename}"
-3. Consider consulting with a tax professional for a detailed analysis of "${filename}"
+1. &quot;${filename}&quot; contains tax-relevant information that may impact your filing
+2. I&apos;ve identified potential tax implications based on the content of &quot;${filename}&quot;
+3. Consider consulting with a tax professional for a detailed analysis of &quot;${filename}&quot;
 
-What specific questions do you have about "${filename}"?`
+What specific questions do you have about &quot;${filename}&quot;?`
 
     case "image":
       return `${randomInsight}
 
-1. "${filename}" appears to contain tax-relevant information
-2. The visual documentation in "${filename}" could be useful for substantiating tax claims
-3. I recommend keeping "${filename}" as part of your tax records
+1. &quot;${filename}&quot; appears to contain tax-relevant information
+2. The visual documentation in &quot;${filename}&quot; could be useful for substantiating tax claims
+3. I recommend keeping &quot;${filename}&quot; as part of your tax records
 
-Is there something specific about "${filename}" you'd like me to address?`
+Is there something specific about &quot;${filename}&quot; you&apos;d like me to address?`
 
     case "Word document":
     case "Excel spreadsheet":
       return `${randomInsight}
 
-1. "${filename}" contains financial or tax information that may be relevant for your ${currentYear} taxes
-2. The data structure in "${filename}" suggests it may be related to income or expense tracking
-3. "${filename}" could be valuable supporting documentation for your tax filing
+1. &quot;${filename}&quot; contains financial or tax information that may be relevant for your ${currentYear} taxes
+2. The data structure in &quot;${filename}&quot; suggests it may be related to income or expense tracking
+3. &quot;${filename}&quot; could be valuable supporting documentation for your tax filing
 
-Would you like suggestions on how to best use the information in "${filename}" for tax purposes?`
+Would you like suggestions on how to best use the information in &quot;${filename}&quot; for tax purposes?`
 
     default:
       return `${randomInsight}
 
-1. "${filename}" appears to contain information relevant to your tax situation
-2. There may be potential tax implications based on the content of "${filename}"
-3. I recommend reviewing "${filename}" with specific tax questions in mind
+1. &quot;${filename}&quot; appears to contain information relevant to your tax situation
+2. There may be potential tax implications based on the content of &quot;${filename}&quot;
+3. I recommend reviewing &quot;${filename}&quot; with specific tax questions in mind
 
-What aspects of "${filename}" would you like me to help you understand?`
+What aspects of &quot;${filename}&quot; would you like me to help you understand?`
   }
 }
 
@@ -204,7 +204,6 @@ export default function ChatInterface() {
   const [isClient, setIsClient] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
   const [isAnalyzing, setIsAnalyzing] = useState(false)
-  const [lastUserQuestion, setLastUserQuestion] = useState("")
   const [suggestedQuestionsContext, setSuggestedQuestionsContext] = useState("default")
   const [showMultimediaContent, setShowMultimediaContent] = useState(false)
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
@@ -255,7 +254,6 @@ export default function ChatInterface() {
   const customHandleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    setLastUserQuestion(input)
     setSuggestedQuestionsContext(input)
 
     if (
@@ -366,7 +364,7 @@ export default function ChatInterface() {
           </div>
           <h3 className="text-xl font-semibold mb-2">Welcome to TaxWiz!</h3>
           <p className="text-muted-foreground max-w-md mb-6">
-            I'm your AI tax assistant. Ask me anything about taxes, upload documents, or try one of the suggested
+            I&apos;m your AI tax assistant. Ask me anything about taxes, upload documents, or try one of the suggested
             questions below.
           </p>
           <div className="flex flex-wrap gap-2 justify-center">
@@ -515,4 +513,3 @@ export default function ChatInterface() {
     </div>
   )
 }
-
