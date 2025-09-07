@@ -17,7 +17,7 @@ Welcome to **TaxWiz**, your tax-season sidekick built with React, Tailwind CSS, 
 - Simulated responses tailored to different file types (e.g., 1099, W-2, 1040, Schedule forms).
 
 ### 📊 Tax Breakdown Chart + Table
-- If a user asks about `breakdown`, `tax calculation`, or `income details`, a **visual breakdown** is displayed with a **bar chart and data table**.
+- If a user asks about `breakdown`, `tax calculation`, or `income details`, a **visual breakdown** is displayed with a **bar chart and data table**
 
 ### 🤖 Suggested Question Context
 - Dynamic suggested questions change based on:
